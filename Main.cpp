@@ -31,6 +31,7 @@ struct Pokemon {
 
 	void attack(Pokemon& other) {
 		std::cout << name << " attaque " << other.name << std::endl;
+		other.damage(attackPoints);
 	}
 };
 
@@ -38,8 +39,9 @@ int main() {
 	Pokemon pokemon1 = { "Amphinobi", 100, 10 };
 	Pokemon pokemon2 = { "Lucario", 100, 10 };
 	
-	std::cout << pokemon1.info() << std::endl;
+	std::cout << pokemon2.info() << std::endl;
 	pokemon1.attack(pokemon2);
+	std::cout << pokemon2.info() << std::endl;
 
 	if (pokemon1.isDead()) {
 		std::cout << "Le " << pokemon1.name << " est K.O" << std::endl;
