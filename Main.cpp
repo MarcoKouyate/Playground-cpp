@@ -19,13 +19,18 @@ struct Pokemon {
 	bool isDead() {
 		return (HP <= 0);
 	}
+
+	void damage(int damage) {
+		HP = HP - damage;
+		std::cout << "Le " << name << " perd : " << damage << " PV." << std::endl;
+	}
 };
 
 int main() {
 	Pokemon pokemon1 = { "Amphinobi", 100, 10 };
 	Pokemon pokemon2 = { "Lucario", 100, 10 };
-
-	pokemon1.HP = -4;
+	
+	pokemon1.damage(20);
 
 	if (pokemon1.isDead()) {
 		std::cout << "Le " << pokemon1.name << " est K.O" << std::endl;
