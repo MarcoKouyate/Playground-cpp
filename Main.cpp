@@ -30,22 +30,39 @@ struct Pokemon {
 	}
 
 	void attack(Pokemon& other) {
-		std::cout << name << " attaque " << other.name << std::endl;
-		other.damage(attackPoints);
+		if (!isDead()) {
+			std::cout << name << " attaque " << other.name << std::endl;
+			other.damage(attackPoints);
+		}
 	}
 };
 
-int main() {
-	Pokemon pokemon1 = { "Amphinobi", 100, 10 };
-	Pokemon pokemon2 = { "Lucario", 100, 10 };
-	
-	std::cout << pokemon2.info() << std::endl;
-	pokemon1.attack(pokemon2);
-	std::cout << pokemon2.info() << std::endl;
+void turnperturn(Pokemon& pokemon1, Pokemon& pokemon2) {
+	while (!pokemon1.isDead() && !pokemon2.isDead()) {
+		pokemon1.attack(pokemon2);
+		pokemon2.attack(pokemon1);
+	}
 
 	if (pokemon1.isDead()) {
 		std::cout << "Le " << pokemon1.name << " est K.O" << std::endl;
 	}
+	if (pokemon2.isDead()) {
+		std::cout << "Le " << pokemon2.name << " est K.O" << std::endl;
+	}
+}
+
+int main() {
+	Pokemon pokemon1 = { "Amphinobi", 100, 10 };
+	Pokemon pokemon2 = { "Lucario", 100, 30 };
+	
+
+	turnperturn(pokemon1, pokemon2);
+
+
+	std::cout << pokemon1.info() << std::endl;
+	std::cout << pokemon2.info() << std::endl;
+
+
 
 	return 0;
 }
