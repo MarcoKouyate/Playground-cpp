@@ -14,29 +14,27 @@ c) Récupérer ce repo - FAIT
 struct Pokemon {
 	std::string name;
 	int HP;
-	int attackPoints;
+	int attack;
 
 	bool isDead() {
 		return (HP <= 0);
-	};
+	}
 
 	void damage(int damage) {
 		HP = HP - damage;
 		std::cout << "Le " << name << " perd : " << damage << " PV." << std::endl;
-	};
+	}
 
-	void attack(Pokemon& other) {
-		std::cout << name << " attaque " << other.name << std::endl;
-	};
+	std::string info() {
+		return "<" +name + " [HP: " + std::to_string(HP) + "]>";
+	}
 };
 
 int main() {
 	Pokemon pokemon1 = { "Amphinobi", 100, 10 };
 	Pokemon pokemon2 = { "Lucario", 100, 10 };
-
-	pokemon1.attack(pokemon2);
 	
-	pokemon1.damage(20);
+	std::cout << pokemon1.info() << std::endl;
 
 	if (pokemon1.isDead()) {
 		std::cout << "Le " << pokemon1.name << " est K.O" << std::endl;
