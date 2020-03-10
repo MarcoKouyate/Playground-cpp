@@ -17,13 +17,7 @@ struct Pokemon {
 	int attack;
 
 	bool isDead() {
-
-		if (HP <= 0) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return (HP <= 0);
 	}
 };
 
