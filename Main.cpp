@@ -24,13 +24,17 @@ struct Pokemon {
 		HP = HP - damage;
 		std::cout << "Le " << name << " perd : " << damage << " PV." << std::endl;
 	}
+
+	std::string info() {
+		return "<" +name + " [HP: " + std::to_string(HP) + "]>";
+	}
 };
 
 int main() {
 	Pokemon pokemon1 = { "Amphinobi", 100, 10 };
 	Pokemon pokemon2 = { "Lucario", 100, 10 };
 	
-	pokemon1.damage(20);
+	std::cout << pokemon1.info() << std::endl;
 
 	if (pokemon1.isDead()) {
 		std::cout << "Le " << pokemon1.name << " est K.O" << std::endl;
