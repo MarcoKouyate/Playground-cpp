@@ -8,8 +8,34 @@ c) Récupérer ce repo - FAIT
 */
 
 #include <iostream>
+#include <string>
+
+
+struct Pokemon {
+	std::string name;
+	int HP;
+	int attack;
+
+	bool isDead() {
+
+		if (HP <= 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+};
 
 int main() {
-	std::cout << "Money" << std::endl;
+	Pokemon pokemon1 = { "Amphinobi", 100, 10 };
+	Pokemon pokemon2 = { "Lucario", 100, 10 };
+
+	pokemon1.HP = -4;
+
+	if (pokemon1.isDead()) {
+		std::cout << "Le " << pokemon1.name << " est K.O" << std::endl;
+	}
+
 	return 0;
 }

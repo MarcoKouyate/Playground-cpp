@@ -23,6 +23,7 @@
     <ProjectGuid>{4E1A9B71-B538-4E2A-9640-95D8942C78CA}</ProjectGuid>
     <RootNamespace>Playground</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Pokemon</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

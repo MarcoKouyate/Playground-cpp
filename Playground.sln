@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Playground", "Playground.vcxproj", "{4E1A9B71-B538-4E2A-9640-95D8942C78CA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pokemoon-project", "..\Pokemoon-project\Pokemoon-project.vcxproj", "{9DCCDF91-CD7C-4E9B-B95C-0C7F5811BEA7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,14 +21,6 @@ Global
 		{4E1A9B71-B538-4E2A-9640-95D8942C78CA}.Release|x64.Build.0 = Release|x64
 		{4E1A9B71-B538-4E2A-9640-95D8942C78CA}.Release|x86.ActiveCfg = Release|Win32
 		{4E1A9B71-B538-4E2A-9640-95D8942C78CA}.Release|x86.Build.0 = Release|Win32
-		{9DCCDF91-CD7C-4E9B-B95C-0C7F5811BEA7}.Debug|x64.ActiveCfg = Debug|x64
-		{9DCCDF91-CD7C-4E9B-B95C-0C7F5811BEA7}.Debug|x64.Build.0 = Debug|x64
-		{9DCCDF91-CD7C-4E9B-B95C-0C7F5811BEA7}.Debug|x86.ActiveCfg = Debug|Win32
-		{9DCCDF91-CD7C-4E9B-B95C-0C7F5811BEA7}.Debug|x86.Build.0 = Debug|Win32
-		{9DCCDF91-CD7C-4E9B-B95C-0C7F5811BEA7}.Release|x64.ActiveCfg = Release|x64
-		{9DCCDF91-CD7C-4E9B-B95C-0C7F5811BEA7}.Release|x64.Build.0 = Release|x64
-		{9DCCDF91-CD7C-4E9B-B95C-0C7F5811BEA7}.Release|x86.ActiveCfg = Release|Win32
-		{9DCCDF91-CD7C-4E9B-B95C-0C7F5811BEA7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
