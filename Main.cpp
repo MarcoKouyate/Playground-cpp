@@ -8,6 +8,8 @@ struct Pokemon {
 	std::string name;
 	int HP;
 	int attackPoints;
+	pokemonType type;
+
 
 	//check if pokemon is dead
 	bool isDead() {
@@ -51,10 +53,12 @@ void turnperturn(Pokemon& pokemon1, Pokemon& pokemon2) {
 	std::cout << std::endl;
 }
 
+enum pokemonType {fire, water, grass};
+
 int main() {
 	//Pokemons structs
-	Pokemon pokemon1 = { "Amphinobi", 100, 10 };
-	Pokemon pokemon2 = { "Lucario", 100, 30 };
+	Pokemon pokemon1 = { "Amphinobi", 100, 10, water };
+	Pokemon pokemon2 = { "Brasegali", 100, 30, fire };
 
 	Pokemon pikachu = { "Pikachu", 100, 10 };
 	Pokemon link = { "Link", 85, 15 };
