@@ -4,7 +4,7 @@
 #include <string>
 
 enum class pokemontype { fire, water, grass };
-float force(pokemontype& const type1, pokemontype& const type2);
+float multiplier(pokemontype& const type1, pokemontype& const type2);
 
 class Pokemon {
 
@@ -45,7 +45,7 @@ public:
 	void attack(Pokemon& other) {
 		if (!isDead()) {
 			std::cout << m_name << " attaque " << other.m_name << std::endl;
-			other.damage(m_attackPoints * force(m_type, other.m_type));
+			other.damage(m_attackPoints * multiplier(m_type, other.m_type));
 		}
 	}
 
@@ -72,11 +72,21 @@ void turnperturn(Pokemon& pokemon1, Pokemon& pokemon2) {
 	}
 	std::cout << std::endl;
 }
-float force(pokemontype& const type1, pokemontype& const type2){
-	if ((type1 == pokemontype::water && type2 == pokemontype::fire)   ||  (type1 == pokemontype::fire && type2 == pokemontype::grass) || (type1 == pokemontype::grass && type2 == pokemontype::water)) {
+
+bool weakness(pokemontype& const type1, pokemontype& const type2) {
+	return (type1 == pokemontype::water && type2 == pokemontype::fire) || (type1 == pokemontype::fire && type2 == pokemontype::grass) || (type1 == pokemontype::grass && type2 == pokemontype::water);
+}
+
+
+float multiplier(pokemontype& const type1, pokemontype& const type2){
+	if (weakness(type1, type2)) {
 		std::cout << "Cette attaque est super efficace" << std::endl;
 		return 2.f;
 		}
+	else if (weakness(type2, type1)) {
+		std::cout << "Cette attaque n'est pas très efficace" << std::endl;
+		return 0.5f;
+	}
 	else  {
 		return 1.f;
 	} 
