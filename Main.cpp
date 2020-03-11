@@ -3,7 +3,8 @@
 #include <iostream>
 #include <string>
 
-enum pokemontype { fire, water, grass };
+enum class pokemontype { fire, water, grass };
+float force(pokemontype& const type1, pokemontype& const type2);
 
 class Pokemon {
 
@@ -20,6 +21,9 @@ public:
 		return m_name;
 	}
 
+	pokemontype getType() const {
+		return m_type;
+	}
 
 	//check if pokemon is dead
 	bool isDead() {
@@ -27,8 +31,8 @@ public:
 	}
 
 	//to inflict damage to pokemon
-	void damage(int damage) {
-		m_HP = m_HP - damage;
+	void damage(float damage) {
+		m_HP = m_HP - int(damage);
 		std::cout << "Le " << m_name << " perd : " << damage << " PV." << std::endl;
 	}
 
@@ -41,7 +45,7 @@ public:
 	void attack(Pokemon& other) {
 		if (!isDead()) {
 			std::cout << m_name << " attaque " << other.m_name << std::endl;
-			other.damage(m_attackPoints);
+			other.damage(m_attackPoints * force(m_type, other.m_type));
 		}
 	}
 
@@ -68,13 +72,21 @@ void turnperturn(Pokemon& pokemon1, Pokemon& pokemon2) {
 	}
 	std::cout << std::endl;
 }
-
+float force(pokemontype& const type1, pokemontype& const type2){
+	if ((type1 == pokemontype::water && type2 == pokemontype::fire)   ||  (type1 == pokemontype::fire && type2 == pokemontype::grass) || (type1 == pokemontype::grass && type2 == pokemontype::water)) {
+		std::cout << "Cette attaque est super efficace" << std::endl;
+		return 2.f;
+		}
+	else  {
+		return 1.f;
+	} 
+}
 
 
 int main() {
 	//Pokemons structs
-	Pokemon pokemon1 ( "Amphinobi", 100, 10, water );
-	Pokemon  pokemon2 ("Brasegali", 100, 30, fire );
+	Pokemon pokemon1 ( "Amphinobi", 100, 10, pokemontype::water );
+	Pokemon  pokemon2 ("Brasegali", 100, 30, pokemontype::fire );
 
 	
 	
