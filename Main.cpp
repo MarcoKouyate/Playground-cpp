@@ -3,8 +3,9 @@
 #include <iostream>
 #include <string>
 
-enum class pokemontype { fire, water, grass };
+enum class pokemontype { fire, water, grass, fly, ground };
 float multiplier(pokemontype& const type1, pokemontype& const type2);
+float immun(pokemontype type1, pokemontype type2);
 
 class Pokemon {
 
@@ -45,7 +46,7 @@ public:
 	void attack(Pokemon& other) {
 		if (!isDead()) {
 			std::cout << m_name << " attaque " << other.m_name << std::endl;
-			other.damage(m_attackPoints * multiplier(m_type, other.m_type));
+			other.damage(m_attackPoints * multiplier(m_type, other.m_type) * immun(m_type, other.m_type));
 		}
 	}
 
@@ -92,18 +93,30 @@ float multiplier(pokemontype& const type1, pokemontype& const type2){
 	} 
 }
 
+float immun(pokemontype type1, pokemontype type2) {
+	if (type1 == pokemontype::ground && type2 == pokemontype::fly) {
+		std::cout << "Cette attaque n'a aucun effet" << std::endl;
+		return 0.f;
+	}
+	else {
+		return 1.f;
+	}
+}
 
 int main() {
 	//Pokemons structs
-	Pokemon pokemon1 ( "Amphinobi", 100, 10, pokemontype::water );
-	Pokemon  pokemon2 ("Brasegali", 100, 30, pokemontype::fire );
+	/*Pokemon pokemon1 ( "Amphinobi", 100, 10, pokemontype::water );
+	Pokemon  pokemon2 ("Brasegali", 100, 30, pokemontype::fire );*/
+	
 
+	Pokemon pokemon3("Sablette", 100, 10, pokemontype::ground);
+	Pokemon pokemon4("Roucool", 100, 10, pokemontype::fly);
+
+	
 	
 	
 	//First duel
-	turnperturn(pokemon1, pokemon2);
-
-	
+	turnperturn(pokemon3, pokemon4);
 
 	return 0;
 }
