@@ -5,7 +5,7 @@
 
 enum class pokemontype { fire, water, grass, fly, ground };
 float multiplier(pokemontype& const type1, pokemontype& const type2);
-float immun(pokemontype type1, pokemontype type2);
+bool immun(pokemontype type1, pokemontype type2);
 
 class Pokemon {
 
@@ -46,7 +46,7 @@ public:
 	void attack(Pokemon& other) {
 		if (!isDead()) {
 			std::cout << m_name << " attaque " << other.m_name << std::endl;
-			other.damage(m_attackPoints * multiplier(m_type, other.m_type) * immun(m_type, other.m_type));
+			other.damage(m_attackPoints * multiplier(m_type, other.m_type));
 		}
 	}
 
@@ -78,6 +78,10 @@ bool weakness(pokemontype& const type1, pokemontype& const type2) {
 	return (type1 == pokemontype::water && type2 == pokemontype::fire) || (type1 == pokemontype::fire && type2 == pokemontype::grass) || (type1 == pokemontype::grass && type2 == pokemontype::water);
 }
 
+bool immun(pokemontype type1, pokemontype type2) {
+	return (type1 == pokemontype::ground && type2 == pokemontype::fly);
+}
+
 
 float multiplier(pokemontype& const type1, pokemontype& const type2){
 	if (weakness(type1, type2)) {
@@ -88,20 +92,15 @@ float multiplier(pokemontype& const type1, pokemontype& const type2){
 		std::cout << "Cette attaque n'est pas très efficace" << std::endl;
 		return 0.5f;
 	}
-	else  {
-		return 1.f;
-	} 
-}
-
-float immun(pokemontype type1, pokemontype type2) {
-	if (type1 == pokemontype::ground && type2 == pokemontype::fly) {
+	else if (immun(type1, type2)) {
 		std::cout << "Cette attaque n'a aucun effet" << std::endl;
 		return 0.f;
 	}
 	else {
 		return 1.f;
-	}
+	} 
 }
+
 
 int main() {
 	//Pokemons structs
