@@ -139,7 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Arena.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Multiplier.cpp" />
+    <ClCompile Include="Pokemon.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Arena.hpp" />
+    <ClInclude Include="Multiplier.hpp" />
+    <ClInclude Include="Pokemon.hpp" />
+    <ClInclude Include="PokemonTypeEnum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
